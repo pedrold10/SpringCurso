@@ -14,25 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VendasApplication {
 
-    @Autowired
-    @Qualifier("gato")
-    private Animal animal;
-
-    @Bean
-    public CommandLineRunner executar(){
-        return args -> {
-            this.animal.fazerBarulho();
-        };
-    }
-
-    @Value("${application.name}")
-    private String applicationName;
-
-    @GetMapping("/hello")
-    public String hello(){
-        return applicationName;
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(VendasApplication.class, args);
     }

@@ -14,11 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VendasApplication {
 
-    @Autowired
-    @Qualifier("gato")
+    @Cachorro
     private Animal animal;
 
-    @Bean
+    @Bean(name = "executarAnimal")
     public CommandLineRunner executar(){
         return args -> {
             this.animal.fazerBarulho();
